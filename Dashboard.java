@@ -1,33 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package database;
 
-/**
- *
- * @author Jean Mikhaila
- */
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
+import javax.swing.JButton;
 
 public class Dashboard extends JFrame {
-
-    public Dashboard() {
+    public Dashboard(String user) {
         setTitle("Dashboard");
-        setSize(400, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); // Center the window
+        setSize(300, 200);
+        setLayout(null);
 
-        // Add a simple label or components as needed
-        JLabel welcomeLabel = new JLabel("Naol Dashboard", JLabel.CENTER);
-        add(welcomeLabel);
-    }
+        JLabel welcome = new JLabel("Welcome, " + user);
+        welcome.setBounds(80, 50, 200, 30);
+        add(welcome);
 
-    public static void main(String[] args) {
-        // Run the dashboard directly for testing
-        SwingUtilities.invokeLater(() -> {
-            new Dashboard().setVisible(true);
+        JButton logout = new JButton("Logout");
+        logout.setBounds(90, 100, 100, 30);
+        add(logout);
+
+        logout.addActionListener(e -> {
+            new Login();
+            dispose();
         });
+
+        setVisible(true);
     }
 }
